@@ -36,14 +36,17 @@ method = 'GET'
 url_postfix = "/api/v1/books/"
 
 response = {
-    'data': {
-        'bookid': int,
-        'bookname': str,
-        'author': str,
-        'year': int,
-        'total_number': int,
-        'available_number': int
-    }
+    'data': [
+        ...
+        {
+            'bookid': int,
+            'bookname': str,
+            'author': str,
+            'year': int,
+            'total_number': int,
+            'available_number': int
+        }
+    ]
 } 
 ```
 
@@ -54,14 +57,17 @@ method = 'GET'
 url_postfix = "/api/v1/books/available"
 
 response = {
-    'data': {
-        'bookid': int,
-        'bookname': str,
-        'author': str,
-        'year': int,
-        'total_number': int,
-        'available_number': int
-    }
+    'data': [
+        ...
+        {
+            'bookid': int,
+            'bookname': str,
+            'author': str,
+            'year': int,
+            'total_number': int,
+            'available_number': int
+        }
+    ]
 } 
 ```
 
@@ -72,13 +78,17 @@ method = 'GET'
 url_postfix = "/api/v1/books/borrowed"
 
 response = {
-    'data': {
-        'bookid': int,
-        'bookname': str,
-        'author': str,
-        'year': int,
-        'borrowed_number': int
-    }
+    'data': [
+        ...
+        {
+            'bookid': int,
+            'bookname': str,
+            'author': str,
+            'year': int,
+            'total_number': int,
+            'available_number': int
+        }
+    ]
 } 
 ```
 
