@@ -77,7 +77,7 @@ response = {
 }
 ```
 
-3. Refresh
+3. Refresh access token
 ```python
 method = 'GET'
 
@@ -211,5 +211,99 @@ response = {
         'author': str,
         'year': int,
     }
+}
+```
+
+11. Get readers of a book
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/reader/<book_id>"
+
+response = {
+    'data': [
+        ...
+        {
+            'userid': int,
+            'username': str,
+            'email': str,
+            'role': str
+        }
+    ]
+}
+```
+
+12. Get books of a reader
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/book/<user_id>"
+
+response = {
+    'data': [
+        ...
+        {
+            'bookid': int,
+            'author': str,
+            'year': int
+        }
+    ]
+}
+```
+
+13. Get my books
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/book/me"
+
+response = {
+    'data': [
+        ...
+        {
+            'bookid': int,
+            'author': str,
+            'year': int
+        }
+    ]
+}
+```
+
+14. Borrow a book
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/borrow/<book_id>"
+
+response = {
+    'data': {
+        'bookid': int,
+        'author': str,
+        'year': int
+    }
+}
+```
+
+15. Give back a book
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/give-back/<book_id>"
+
+response = {
+    'data': {
+        'bookid': int
+    }
+}
+```
+
+16. Give back all book
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/borrows/give-back-all
+
+response = {
+    'msg': 'Give back all successfully'
 }
 ```
