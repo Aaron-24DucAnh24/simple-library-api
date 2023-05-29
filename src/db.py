@@ -14,8 +14,8 @@ def make_dicts(cursor, row):
                 for idx, value in enumerate(row))
 
 def create_id(table):
+    record_id = 'bookid' if table=='books' else 'userid'
     cur = get_db().cursor()
-    cur.execute(f'select max(bookid) from {table};')
+    cur.execute(f'select max({record_id}) from {table};')
     _, ret = cur.fetchone().popitem()
-    cur.close()
-    return ret + 1
+    return ret + 1 if ret else 1

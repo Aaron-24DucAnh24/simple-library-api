@@ -6,14 +6,17 @@
 - Python3
 - Pip3
 
-2. Run env mode
+2. Install and setup virtualenv
 ```bash
 sudo pip3 install virtualenv
 python3 virtual venv
+```
+3. Activate virtual env
+```bash
 source venv/bin/activate
 ```
 
-3. Install dependencies
+4. Install dependencies
 ```bash
 pip3 install requirements
 ```
@@ -29,7 +32,87 @@ deactivate
 ```
 
 ### API
-1. Get all books
+1. Login
+```python
+method = 'POST'
+
+url_postfix = "/api/v1/auth/login"
+
+request = {
+    'email': str,
+    'password': str
+}
+
+response = {
+    'data': {
+            'username': str,
+            'email': str,
+            'role': str,
+            'access': str,
+            'refresh': str,
+    }
+}
+```
+
+2. Register
+```python
+method = 'POST'
+
+url_postfix = "/api/v1/auth/register"
+
+request = {
+    'email': str,
+    'password': str,
+    'username': str
+}
+
+response = {
+    'data': {
+            'username': str,
+            'email': str,
+            'role': str,
+            'access': str,
+            'refresh': str,
+    }
+}
+```
+
+3. Refresh
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/auth/refresh"
+
+response = {
+    'access': str
+}
+```
+
+4. Clear access token
+
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/auth/logout2"
+
+response = {
+    'msg': 'Clear access token successfully'
+}
+```
+
+5. Clear refresh token
+
+```python
+method = 'GET'
+
+url_postfix = "/api/v1/auth/logout"
+
+response = {
+    'msg': 'Clear refresh token successfully'
+}
+```
+
+6. Get all books
 ```python
 method = 'GET'
 
@@ -50,7 +133,7 @@ response = {
 } 
 ```
 
-2. Get available books
+7. Get available books
 ```python
 method = 'GET'
 
@@ -71,7 +154,7 @@ response = {
 } 
 ```
 
-3. Get borrowed books
+8. Get borrowed books
 ```python
 method = 'GET'
 
@@ -92,7 +175,7 @@ response = {
 } 
 ```
 
-4. Add a book
+9. Add a book
 ```python
 method = 'POST'
 
@@ -116,7 +199,7 @@ response = {
 }
 ```
 
-5. Delete a book
+10. Delete a book
 ```python
 method = 'DELETE'
 

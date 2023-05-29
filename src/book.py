@@ -1,4 +1,11 @@
-from flask import Blueprint, request, json
+from flask import (
+    Blueprint, 
+    request, 
+    json
+)
+from flask_jwt_extended import (
+    jwt_required
+)
 from db import get_db, create_id
 
 books = Blueprint(
@@ -8,6 +15,7 @@ books = Blueprint(
 )
 
 @books.get('/')
+@jwt_required()
 def get_all():
     cur = get_db().cursor()
     cur.execute('select * from books;')
@@ -16,6 +24,7 @@ def get_all():
     return {'data': ret}
 
 @books.get('/available')
+@jwt_required()
 def get_available():
     cur = get_db().cursor()
     cur.execute('select * from books where available_number > 0;')
@@ -24,6 +33,7 @@ def get_available():
     return {'data': ret}
 
 @books.get('/borrowed')
+@jwt_required()
 def get_borrowed():
     cur = get_db().cursor()
     cur.execute('\
@@ -36,6 +46,7 @@ def get_borrowed():
     return {'data': ret}
 
 @books.post('/')
+@jwt_required()
 def add():
     name = request.json['name']
     author = request.json['author']
@@ -53,7 +64,6 @@ def add():
         return {'error': 'Negative number'}
 
     book_id = create_id('books')
-    cur = get_db().cursor()
     cur.execute(f'insert into books values ( \
         {book_id}, "{name}", "{author}", {year}, {number}, {number} \
     );')
@@ -65,6 +75,7 @@ def add():
     return {'data': ret}
 
 @books.delete('/<book_id>')
+@jwt_required()
 def delete(book_id):
     cur = get_db().cursor()
     cur.execute(

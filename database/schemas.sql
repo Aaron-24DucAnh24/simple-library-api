@@ -18,7 +18,7 @@ create table books (
 create table borrows (
     bookid integer,
     userid integer,
-    foreign key (userid) references users(userid),
-    foreign key (bookid) references books(bookid),
+    foreign key (userid) references users(userid) on delete cascade,
+    foreign key (bookid) references books(bookid) on delete cascade,
     primary key (bookid, userid)
 );
