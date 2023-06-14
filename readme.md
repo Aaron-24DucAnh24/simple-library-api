@@ -18,7 +18,7 @@ source venv/bin/activate
 
 4. Install dependencies
 ```bash
-pip3 install requirements
+python3 -m pip install -r requirements.txt
 ```
 
 ### Run
