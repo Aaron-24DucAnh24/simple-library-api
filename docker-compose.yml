@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  api: 
+    image: docker24ducanh24/simple-library-api
+    ports:
+      - 3000:5000

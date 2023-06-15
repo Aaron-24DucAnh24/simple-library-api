@@ -1,6 +1,11 @@
 # Simple Flask API for library management
 
-### Setup
+### Using my docker image
+```bash
+docker-compose up
+```
+
+### Setup using Virtualenv
 
 1. Make sure you got
 - Python3
@@ -23,7 +28,7 @@ python3 -m pip install -r requirements.txt
 
 ### Run
 ```bash
-flask run
+flask --app src/app run
 ```
 > now, the server is running on *http://127.0.0.1:5000*
 > whenever you want to exit env mode

@@ -28,7 +28,10 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+@app.get('/')
+def root():
+    return {"message": "welcome to the API server"}
+
 app.register_blueprint(auth)
 app.register_blueprint(books)
 app.register_blueprint(borrows)
-    
